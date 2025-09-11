@@ -9,7 +9,7 @@ export default function Accordian(){
     const clickHandler = (id) =>{selected === id ? setSelected(null) : setSelected(id);}
     const multipleClickHandler = (id) =>{
       const toggledQuestions = [...selectedMult];
-      
+      // check if id is already in the array
         const index = toggledQuestions.indexOf(id);
         if(index > -1){
       
@@ -18,9 +18,13 @@ export default function Accordian(){
         toggledQuestions.push(id);
         setSelectedMult(toggledQuestions)
     }}
+    const buttonEnableHandler = (enable) =>{setEnableMult(enable) 
+        setSelected(null);
+        selectedMult([]);
+    }   
         return(
     <div className="accordian">
-        <button  onClick={()=> setEnableMult(!enableMult) } style={{borderColor:'white'}} >Enable Mult</button>
+        <button  onClick={()=> buttonEnableHandler(!enableMult) } style={{borderColor:'white'}} >Enable Mult</button>
         {data.map((item) => (
             <>
             <div className="accordian-question"  id={item.id} onClick={enableMult? ()=>multipleClickHandler(item.id): ()=>clickHandler(item.id)} >
