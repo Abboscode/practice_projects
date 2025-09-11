@@ -20,7 +20,7 @@ export default function Accordian(){
     }}
     const buttonEnableHandler = (enable) =>{setEnableMult(enable) 
         setSelected(null);
-        selectedMult([]);
+        setSelectedMult([]);
     }   
         return(
     <div className="accordian">
