@@ -2,7 +2,7 @@ import {useState} from 'react';
 import data from './data';
 
 export default function Accordian(){
-    const [accordianData, setAccordianData] = useState(data);
+
     const [selected, setSelected] = useState(null);
     const [selectedMult, setSelectedMult] = useState([]);
     const [enableMult, setEnableMult] = useState(false);
