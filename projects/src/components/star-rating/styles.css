@@ -1,0 +1,6 @@
+.star-rating .active{
+    color: gold;
+}
+.star-rating .inactive{
+    color: lightgreen;
+}
