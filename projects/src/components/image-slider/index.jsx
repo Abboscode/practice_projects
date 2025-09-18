@@ -22,26 +22,29 @@ export default function ImageSlider({url, page = 1, limit = 5}) {
         }
     }
 
-const handleClick = () => {
+    const handleClickLeft = (getIndex) => {
+        (getIndex < 1) ? setCurrentImage(images.length - 1)
+            : setCurrentImage(getIndex - 1);
 
 
-
-}
+    }
     useEffect(() => {
-        if(url!=="") fetchImages(url);
+        if (url !== "") fetchImages(url);
 
 
-    },[ url])
+    }, [url])
 
     return (
 
         <div className="container">
-            <BsArrowLeftCircleFill onClick={()=>handleClick()}  className="arrow arrow-left"></BsArrowLeftCircleFill>
-            {images && images.length ? images.map((image,index) => (
+            <BsArrowLeftCircleFill onClick={() => handleClickLeft(currentImage)}
+                                   className="arrow arrow-left"></BsArrowLeftCircleFill>
+            {images && images.length ? images.map((image, index) => (
 
 
-            <img key={image.id} src={image.download_url} alt={image.download_url} className={currentImage===index?"current-image": "current-image hidden"}/>
-       )) : null}
+                <img key={image.id} src={image.download_url} alt={image.download_url}
+                     className={currentImage === index ? "current-image" : "current-image hidden"}/>
+            )) : null}
 
         </div>
 
