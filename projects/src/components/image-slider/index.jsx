@@ -28,6 +28,12 @@ export default function ImageSlider({url, page = 1, limit = 5}) {
 
 
     }
+    const handleClickRight = (getIndex) => {
+        (getIndex === images.length-1) ? setCurrentImage(0)
+            : setCurrentImage(getIndex +1);
+
+
+    }
     useEffect(() => {
         if (url !== "") fetchImages(url);
 
@@ -45,7 +51,7 @@ export default function ImageSlider({url, page = 1, limit = 5}) {
                 <img key={image.id} src={image.download_url} alt={image.download_url}
                      className={currentImage === index ? "current-image" : "current-image hidden"}/>
             )) : null}
-
+<BsArrowRightCircleFill onClick={()=>handleClickRight(currentImage)} className="arrow arrow-right"></BsArrowRightCircleFill>
         </div>
 
 
